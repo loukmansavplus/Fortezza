@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Fortezza – Plaquette commerciale</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+@page { size: A4; margin: 0; }
+:root{
+  --navy:#03214A; --navy2:#06305f; --cyan:#00C6D7; --ink:#14233b; --mut:#5b6b82; --bg:#F3F6FA; --line:#dfe6ef;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{background:#e8ecf2;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+@media print{html,body{background:#fff}}
+body{font-family:'Inter',sans-serif;color:var(--ink);font-size:9.6pt;line-height:1.5}
+h1,h2,h3,.disp{font-family:'Space Grotesk',sans-serif;letter-spacing:-.01em}
+.page{width:210mm;height:297mm;position:relative;overflow:hidden;page-break-after:always;background:#fff}
+.page:last-child{page-break-after:auto}
+.ph{background-size:cover;background-position:center}
+.eyebrow{font:600 7.5pt 'Space Grotesk';letter-spacing:.22em;text-transform:uppercase;color:var(--cyan)}
+
+/* Folio légèrement amélioré : fine ligne de séparation */
+.folio{
+  position:absolute;left:16mm;right:16mm;bottom:8mm;
+  display:flex;justify-content:space-between;
+  font-size:7pt;color:var(--mut);letter-spacing:.08em;text-transform:uppercase;
+  padding-top:2.5mm;
+  border-top:0.3px solid var(--line);
+}
+.folio b{color:var(--navy);font-weight:700;font-family:'Space Grotesk'}
+.dark .folio{color:#9fb3cf;border-top-color:rgba(255,255,255,.15)}
+.dark .folio b{color:#fff}
+
+/* ---------- PAGE 1 : COUVERTURE ---------- */
+.p1{background:var(--navy)}
+.p1 .bg{position:absolute;inset:0;background-image:url(img/cover.jpg);background-size:cover;background-position:62% center}
+.p1 .shade{position:absolute;inset:0;background:
+  linear-gradient(180deg,rgba(3,33,74,.88) 0%,rgba(3,33,74,.55) 34%,rgba(3,33,74,.86) 74%,#03214A 100%)}
+.p1 .logo{position:absolute;top:18mm;left:16mm;width:78mm}
+.p1 .tag{position:absolute;top:19mm;right:16mm;font:600 7.5pt 'Space Grotesk';letter-spacing:.22em;text-transform:uppercase;color:#cfe3f5;text-align:right;line-height:1.7}
+.p1 .tag i{display:block;width:10mm;height:1.2mm;background:var(--cyan);margin:0 0 2mm auto}
+.p1 .title{position:absolute;left:16mm;right:16mm;top:112mm}
+.p1 .title .eyebrow{
+  margin-bottom:6mm;
+  display:flex;align-items:center;gap:3mm;
+  /* Texte eyebrow couleur un peu plus vive */
+  color:#4dd9e8;
+  letter-spacing:.26em;
+}
+.p1 .title .eyebrow::before{content:"";width:12mm;height:1.2mm;background:#4dd9e8}
+.p1 h1{font-size:43pt;line-height:1.02;color:#fff;font-weight:700;letter-spacing:-.02em}
+.p1 h1 em{font-style:normal;color:var(--cyan)}
+.p1 .sub{margin-top:8mm;max-width:132mm;font-size:11.5pt;line-height:1.55;color:#d6e4f4;font-weight:300}
+.p1 .poles{position:absolute;left:16mm;right:16mm;bottom:26mm;display:grid;grid-template-columns:repeat(5,1fr);border-top:0.6px solid rgba(255,255,255,.28)}
+.p1 .poles div{padding:5mm 3mm 0 0;font:600 7.6pt 'Space Grotesk';color:#fff;line-height:1.3;letter-spacing:.02em}
+.p1 .poles span{display:block;color:var(--cyan);font-size:7pt;letter-spacing:.18em;margin-bottom:1.5mm;font-weight:400}
+.p1 .url{position:absolute;left:16mm;right:16mm;bottom:9mm;display:flex;justify-content:space-between;font-size:7.5pt;letter-spacing:.14em;text-transform:uppercase;color:#9fb3cf}
+
+/* Coin décoratif cyan — légèrement visible */
+.p1 .corner{
+  position:absolute;right:0;top:0;
+  width:0;height:0;
+  border-style:solid;
+  border-width:0 40mm 40mm 0;
+  border-color:transparent rgba(0,198,215,.18) transparent transparent
+}
+
+/* ---------- PAGE 2 : QUI EST FORTEZZA ---------- */
+.p2 .hero{height:124mm;position:relative}
+.p2 .hero .ph{position:absolute;inset:0;background-image:url(img/team.jpg);background-position:center 40%}
+.p2 .hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,33,74,.75) 0%,rgba(3,33,74,0) 24%,rgba(3,33,74,0) 38%,rgba(3,33,74,.92) 100%)}
+.p2 .hero .tabs{position:absolute;left:16mm;top:15mm;z-index:2}
+.p2 .hero .tabs img{width:46mm;display:block}
+
+/* Ligne cyan fine sous le logo sur l'hero */
+.p2 .hero .stripe{
+  position:absolute;left:16mm;top:10.5mm;
+  width:46mm;height:0.7mm;
+  background:var(--cyan);
+  z-index:2;
+  opacity:.7;
+}
+
+.p2 .hero .cap{position:absolute;left:16mm;bottom:11mm;z-index:2;color:#fff;max-width:120mm}
+.p2 .hero .cap .eyebrow{margin-bottom:3mm;color:#7fe6f0;letter-spacing:.22em}
+.p2 .hero .cap h2{font-size:25pt;line-height:1.08;font-weight:700}
+.p2 .notch{position:absolute;right:0;top:106mm;width:46mm;height:18mm;background:var(--cyan);z-index:3;clip-path:polygon(18% 0,100% 0,100% 100%,0 100%)}
+
+.p2 .body{display:grid;grid-template-columns:1.12fr .88fr;gap:12mm;padding:11mm 16mm 0}
+.p2 .body p{color:#32435c;margin-bottom:4mm;font-size:9.8pt}
+.p2 .body p strong{color:var(--navy)}
+
+/* Citation enrichie — fond subtil + trait */
+.p2 .quote{
+  border-left:1.8mm solid var(--cyan);
+  padding:2.5mm 0 2.5mm 5mm;
+  background:linear-gradient(90deg,rgba(0,198,215,.07),transparent);
+  border-radius:0 1.5mm 1.5mm 0;
+  font:500 11.5pt/1.4 'Space Grotesk';
+  color:var(--navy);
+  margin-top:6mm
+}
+
+.p2 .vm{display:grid;gap:4mm;align-content:start}
+.p2 .vm .v1,.p2 .vm .v2{border-radius:2mm;padding:6mm}
+.p2 .vm .v1{background:var(--navy);color:#fff}
+.p2 .vm .v2{background:var(--bg);color:var(--ink)}
+.p2 .vm .k{font:600 7pt 'Space Grotesk';letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);margin-bottom:2.5mm}
+.p2 .vm .v2 .k{color:#0089a0}
+.p2 .vm p{margin:0;font:500 10.4pt/1.42 'Space Grotesk';color:inherit}
+
+.p2 .why{position:absolute;left:16mm;right:16mm;bottom:20mm}
+.p2 .why h3{font-size:13pt;color:var(--navy);margin-bottom:4mm;display:flex;align-items:center;gap:3mm;font-weight:700}
+.p2 .why h3::after{content:"";flex:1;height:0.5px;background:var(--line)}
+.p2 .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:4mm}
+.p2 .grid4 div{
+  border:0.7px solid var(--line);
+  border-radius:2mm;
+  padding:4.5mm 4mm 4mm;
+  background:#fff;
+  box-shadow:0 0.3mm 1.2mm rgba(3,33,74,.07)
+}
+.p2 .grid4 svg{width:7mm;height:7mm;stroke:var(--cyan);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;margin-bottom:2.5mm}
+.p2 .grid4 b{display:block;font:600 9.4pt 'Space Grotesk';color:var(--navy);margin-bottom:1mm}
+.p2 .grid4 span{font-size:8.2pt;line-height:1.38;color:var(--mut);display:block}
+
+/* ---------- PAGE 3 : EXPERTISES ---------- */
+.p3{background:var(--bg)}
+.p3 header{padding:14mm 16mm 0;display:flex;justify-content:space-between;align-items:end}
+.p3 header h2{font-size:25pt;color:var(--navy);line-height:1.05;font-weight:700}
+.p3 header p{max-width:62mm;font-size:8.4pt;color:var(--mut);line-height:1.45;text-align:right}
+.p3 .list{position:absolute;left:16mm;right:16mm;top:42mm;display:grid;grid-template-rows:repeat(5,1fr);gap:3.2mm;height:236mm}
+
+/* Cartes avec ombre plus douce et trait bas */
+.card{
+  display:grid;
+  grid-template-columns:50mm 1fr;
+  background:#fff;
+  border-radius:2.2mm;
+  overflow:hidden;
+  box-shadow:0 0.4mm 0 var(--line),0 0.3mm 2mm rgba(3,33,74,.06)
+}
+.card.r{grid-template-columns:1fr 50mm}
+.card.r .ph{order:2}
+.card .ph{position:relative}
+.card .ph::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(3,33,74,.35),rgba(3,33,74,0))}
+.card .num{position:absolute;left:0;top:0;z-index:2;background:var(--cyan);color:var(--navy);font:700 11pt 'Space Grotesk';padding:2mm 3.2mm 2mm}
+.card.r .num{left:auto;right:0}
+.card .tx{padding:4.6mm 6mm 3mm}
+.card h3{font-size:12pt;line-height:1.15;color:var(--navy);font-weight:700}
+.card .acc{font:500 8.8pt 'Space Grotesk';color:#0089a0;margin:1mm 0 1.8mm}
+.card p{font-size:8.1pt;line-height:1.4;color:#44556d;margin-bottom:2mm}
+.card ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:.6mm 5mm}
+.card li{font-size:7.7pt;line-height:1.32;color:var(--ink);padding-left:3.2mm;position:relative}
+.card li::before{content:"";position:absolute;left:0;top:1.35mm;width:1.5mm;height:1.5mm;background:var(--cyan)}
+
+/* ---------- PAGE 4 : CONTACT ---------- */
+.p4{background:var(--navy);color:#fff}
+.p4 .top{position:absolute;left:0;right:0;top:0;height:128mm}
+.p4 .top .ph{position:absolute;inset:0;background-image:url(img/contact.jpg);background-position:center 35%}
+.p4 .top::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(3,33,74,.55) 0%,rgba(3,33,74,.35) 30%,rgba(3,33,74,.93) 82%,#03214A 100%)}
+.p4 .top .logo{position:absolute;left:16mm;top:15mm;width:46mm;z-index:2}
+.p4 .cta{position:absolute;left:16mm;right:16mm;top:70mm;z-index:2}
+.p4 .cta .eyebrow{margin-bottom:4mm;letter-spacing:.26em}
+.p4 .cta h2{font-size:31pt;line-height:1.05;font-weight:700;max-width:160mm;letter-spacing:-.015em}
+.p4 .cta h2 em{font-style:normal;color:var(--cyan)}
+.p4 .cta p{margin-top:5mm;font-size:11pt;color:#d6e4f4;max-width:125mm;line-height:1.55;font-weight:300}
+.p4 .btnrow{position:absolute;left:16mm;top:140mm;display:flex;gap:4mm}
+.btn{display:inline-block;font:600 9.5pt 'Space Grotesk';padding:3.4mm 7mm;border-radius:99px;letter-spacing:.04em}
+.btn.a{background:var(--cyan);color:var(--navy)}
+.btn.b{border:1px solid rgba(255,255,255,.4);color:#fff}
+.p4 .cols{position:absolute;left:16mm;right:16mm;top:168mm;display:grid;grid-template-columns:1fr 1fr 1fr;gap:9mm}
+.p4 .col h4{font:600 7.4pt 'Space Grotesk';letter-spacing:.22em;text-transform:uppercase;color:var(--cyan);padding-bottom:3mm;border-bottom:0.6px solid rgba(255,255,255,.2);margin-bottom:3.5mm}
+.p4 .col li{list-style:none;font-size:8.8pt;line-height:1.5;color:#e6effa;margin-bottom:1.3mm}
+.p4 .col li small{display:block;color:#8ea6c6;font-size:7.2pt;letter-spacing:.08em;text-transform:uppercase}
+.p4 .steps{position:absolute;left:16mm;right:16mm;top:233mm;display:grid;grid-template-columns:repeat(4,1fr);gap:0;background:var(--navy2);border-radius:2mm;overflow:hidden}
+.p4 .steps div{padding:5mm 5mm 5mm;border-right:1px solid rgba(255,255,255,.12);position:relative}
+.p4 .steps div::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--cyan)}
+.p4 .steps div:last-child{border:0}
+.p4 .steps b{display:block;font:700 15pt 'Space Grotesk';color:var(--cyan);margin-bottom:1mm}
+.p4 .steps span{font-size:8pt;line-height:1.35;color:#d6e4f4;display:block}
+.p4 .steps strong{display:block;font:600 9pt 'Space Grotesk';color:#fff;margin-bottom:.8mm}
+.p4 .legal{position:absolute;left:16mm;right:16mm;bottom:15mm;font-size:6.6pt;color:#7f97b8;line-height:1.4}
+</style>
+</head>
+<body>
+
+<!-- ===================== PAGE 1 ===================== -->
+<section class="page p1 dark">
+  <div class="bg"></div><div class="shade"></div>
+  <div class="corner"></div>
+  <img class="logo" src="img/logo-white.png" alt="Fortezza">
+  <div class="tag"><i></i>Cotonou · Bénin<br>Afrique de l'Ouest</div>
+
+  <div class="title">
+    <div class="eyebrow">Plaquette commerciale 2026</div>
+    <h1>L'Excellence<br><em>Technologique.</em></h1>
+    <p class="sub">Votre partenaire technologique pour une performance durable : de la fourniture de matériel à la sécurisation de vos systèmes.</p>
+  </div>
+
+  <div class="poles">
+    <div><span>01</span>Infrastructures &amp; Systèmes d'Information</div>
+    <div><span>02</span>Fourniture de Matériels</div>
+    <div><span>03</span>Maintenance &amp; Support Technique</div>
+    <div><span>04</span>Développement Web &amp; Cloud</div>
+    <div><span>05</span>Formation Professionnelle</div>
+  </div>
+  <div class="url"><span>Fortezza SAS</span><span>fortezza.bj</span></div>
+</section>
+
+<!-- ===================== PAGE 2 ===================== -->
+<section class="page p2">
+  <div class="hero">
+    <div class="ph"></div>
+    <div class="stripe"></div>
+    <div class="tabs"><img src="img/logo-white.png" alt="Fortezza"></div>
+    <div class="cap">
+      <div class="eyebrow">Qui est Fortezza ?</div>
+      <h2>Plus qu'un prestataire,<br>votre partenaire technologique.</h2>
+    </div>
+  </div>
+  <div class="notch"></div>
+
+  <div class="body">
+    <div>
+      <p><strong>Fortezza SAS</strong> est une société béninoise spécialisée en informatique, systèmes d'information et services numériques. Elle accompagne entreprises, administrations et particuliers de l'idée à la maintenance.</p>
+      <p>Nous ne vendons pas juste du matériel ou des logiciels. Nous apportons des solutions qui résolvent de vrais problèmes : <strong>sécuriser vos données, fluidifier votre travail, et vous faire gagner du temps.</strong></p>
+      <div class="quote">Fortezza, c'est plus qu'un prestataire, c'est votre partenaire technologique.</div>
+    </div>
+    <div class="vm">
+      <div class="v1"><div class="k">Notre vision</div><p>Devenir la référence de l'excellence IT en Afrique de l'Ouest.</p></div>
+      <div class="v2"><div class="k">Notre mission</div><p>Rendre la technologie accessible, fiable et performante pour toutes les entreprises, quelle que soit leur taille.</p></div>
+    </div>
+  </div>
+
+  <div class="why">
+    <h3>Fortezza, la différence</h3>
+    <div class="grid4">
+      <div>
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="3.5"/><path d="M5 20c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/><path d="M19 4.5l1.5 1.5L23 3.5" /></svg>
+        <b>Expertise complète</b><span>Un seul interlocuteur pour tout votre IT.</span>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>
+        <b>Réactivité</b><span>Intervention rapide à Cotonou et partout au Bénin.</span>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 8.7-8 11-4.6-2.3-8-6-8-11V5z"/><path d="M8.5 12l2.5 2.5 4.5-5"/></svg>
+        <b>Qualité &amp; garantie</b><span>Matériels certifiés et services garantis.</span>
+      </div>
+      <div>
+        <svg viewBox="0 0 24 24"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9.5h8M8 12.5h5"/></svg>
+        <b>Accompagnement</b><span>On vous conseille, on ne vous vend pas juste.</span>
+      </div>
+    </div>
+  </div>
+  <div class="folio"><b>Fortezza</b><span>02 — Qui sommes-nous</span></div>
+</section>
+
+<!-- ===================== PAGE 3 ===================== -->
+<section class="page p3">
+  <header>
+    <div>
+      <div class="eyebrow" style="margin-bottom:2.5mm">Nos expertises</div>
+      <h2>5 pôles, un seul<br>interlocuteur.</h2>
+    </div>
+    <p>Audit, matériel, maintenance, développement et formation : tout votre IT, de l'idée au suivi.</p>
+  </header>
+
+  <div class="list">
+    <article class="card">
+      <div class="ph" style="background-image:url(img/infra.jpg)"><span class="num">01</span></div>
+      <div class="tx">
+        <h3>Infrastructures &amp; Systèmes d'Information</h3>
+        <div class="acc">Votre système nerveux numérique, on s'en occupe.</div>
+        <p>Audit, conception, intégration et sécurisation de vos réseaux, serveurs et systèmes informatiques. Nous construisons une base solide pour votre croissance.</p>
+        <ul><li>Audit et conseil informatique</li><li>Architecture réseau</li><li>Intégration de systèmes</li><li>Infogérance et sécurisation</li></ul>
+      </div>
+    </article>
+
+    <article class="card r">
+      <div class="tx">
+        <h3>Fourniture de Matériels &amp; Équipements</h3>
+        <div class="acc">Du matériel fiable, au bon prix.</div>
+        <p>Ordinateurs, serveurs, imprimantes, onduleurs, accessoires réseau. Matériel d'origine, garanti, avec livraison et installation au Bénin.</p>
+        <ul><li>PC, serveurs, imprimantes, onduleurs</li><li>Équipements et consommables</li><li>Solutions complètes bureaux</li><li>Marques certifiées</li></ul>
+      </div>
+      <div class="ph" style="background-image:url(img/mat.jpg)"><span class="num">02</span></div>
+    </article>
+
+    <article class="card">
+      <div class="ph" style="background-image:url(img/maint.jpg);background-position:70% center"><span class="num">03</span></div>
+      <div class="tx">
+        <h3>Maintenance &amp; Support Technique</h3>
+        <div class="acc">On ne vous laisse jamais en panne.</div>
+        <p>Votre activité ne doit jamais s'arrêter. Maintenance préventive, dépannage curatif sur site et à distance, contrat de support et infogérance.</p>
+        <ul><li>Maintenance préventive et corrective</li><li>Dépannage sur site et à distance</li><li>Support utilisateur et Helpdesk</li><li>Contrat annuel (SAV garanti)</li></ul>
+      </div>
+    </article>
+
+    <article class="card r">
+      <div class="tx">
+        <h3>Développement Web &amp; Cloud</h3>
+        <div class="acc">Votre présence digitale, clé en main.</div>
+        <p>Sites vitrines, applications web et mobiles, hébergement professionnel, messagerie pro, solutions Cloud et cybersécurité.</p>
+        <ul><li>Sites web &amp; applications mobiles</li><li>Hébergement, emails pro &amp; Cloud</li><li>Cybersécurité et données</li><li>Gestion sur mesure (ERP, CRM)</li></ul>
+      </div>
+      <div class="ph" style="background-image:url(img/web.jpg)"><span class="num">04</span></div>
+    </article>
+
+    <article class="card">
+      <div class="ph" style="background-image:url(img/form.jpg);background-position:30% center"><span class="num">05</span></div>
+      <div class="tx">
+        <h3>Formation Professionnelle</h3>
+        <div class="acc">La technologie ne vaut que si vos équipes la maîtrisent.</div>
+        <p>Formez vos équipes à la bureautique avancée, à la cybersécurité, aux réseaux et aux outils numériques pour gagner en autonomie.</p>
+        <ul><li>Bureautique, réseau, cybersécurité</li><li>Ateliers pratiques en entreprise</li><li>Séminaires nouvelles technologies</li><li>Certificats de formation Fortezza</li></ul>
+      </div>
+    </article>
+  </div>
+  <div class="folio"><b>Fortezza</b><span>03 — Nos expertises</span></div>
+</section>
+
+<!-- ===================== PAGE 4 ===================== -->
+<section class="page p4 dark">
+  <div class="top"><div class="ph"></div><img class="logo" src="img/logo-white.png" alt="Fortezza"></div>
+  <div class="cta">
+    <div class="eyebrow">Parlons de votre projet</div>
+    <h2>Prêt à sécuriser et <em>moderniser</em> votre entreprise&nbsp;?</h2>
+    <p>Ne laissez pas un problème informatique ralentir votre business. Devis gratuit à Cotonou.</p>
+  </div>
+  <div class="btnrow"><span class="btn a">Demander un devis</span><span class="btn b">fortezza.bj</span></div>
+
+  <div class="cols">
+    <div class="col"><h4>Contact</h4><ul>
+      <li><small>Adresse</small>Cotonou, Bénin</li>
+      <li><small>Téléphone / WhatsApp</small>+229 00 00 00 00</li>
+      <li><small>Email</small>contact@fortezza.bj</li>
+      <li><small>Devis</small>devis@fortezza.bj</li>
+    </ul></div>
+    <div class="col"><h4>Horaires</h4><ul>
+      <li><small>Lundi – Vendredi</small>08h – 18h</li>
+      <li><small>Samedi</small>09h – 13h</li>
+    </ul></div>
+    <div class="col"><h4>Nos pôles</h4><ul>
+      <li>Infrastructures &amp; Systèmes</li><li>Fourniture de Matériels</li><li>Maintenance &amp; Support</li><li>Développement Web &amp; Cloud</li><li>Formation Professionnelle</li>
+    </ul></div>
+  </div>
+
+  <div class="steps">
+    <div><b>1</b><strong>Un seul interlocuteur</strong><span>Pour tout votre IT.</span></div>
+    <div><b>2</b><strong>Conseil avant la vente</strong><span>On vous conseille d'abord.</span></div>
+    <div><b>3</b><strong>Matériel garanti</strong><span>Certifié, livré, installé.</span></div>
+    <div><b>4</b><strong>Réactivité</strong><span>Partout au Bénin.</span></div>
+  </div>
+
+  <div class="legal">Fortezza SAS · L'Excellence Technologique. Photographies : Pexels (licence libre de droits).</div>
+  <div class="folio"><b>Fortezza</b><span>04 — Contact</span></div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,10 @@
+# Secrets : ne jamais publier
+API USEFULL
+.env
+
+# Non lié au site / fichiers générés
+.refact/
+CIM_20260730.pdf
+*- Copie/
+site/dist/
+__pycache__/
